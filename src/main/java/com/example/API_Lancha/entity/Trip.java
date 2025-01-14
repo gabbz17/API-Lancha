@@ -24,6 +24,10 @@ public class Trip {
     private String hour;
     @NotNull
     private Integer length;
+    @NotBlank
+    private String buyer;
+    private String shipName;
     private Integer buy;
     private LocalDateTime date = LocalDateTime.now();
+    private Role go;
 }

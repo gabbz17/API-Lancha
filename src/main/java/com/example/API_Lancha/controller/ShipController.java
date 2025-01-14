@@ -41,4 +41,10 @@ public class ShipController {
         Ship ship = service.findByGo(role);
         return ResponseEntity.ok().body(ship);
     }
+
+    @DeleteMapping("/id/{id}")
+    public ResponseEntity<Void> deleteById(@Valid @PathVariable Long id){
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }

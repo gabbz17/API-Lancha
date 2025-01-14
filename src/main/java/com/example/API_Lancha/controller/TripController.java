@@ -28,4 +28,10 @@ public class TripController {
         List<Trip> ship = service.findAll();
         return ResponseEntity.ok().body(ship);
     }
+
+    @GetMapping("/buyer/{buyer}")
+    public ResponseEntity<Trip> findByBuyer(@Valid @PathVariable String buyer){
+        Trip ship = service.findByBuyer(buyer);
+        return ResponseEntity.ok().body(ship);
+    }
 }

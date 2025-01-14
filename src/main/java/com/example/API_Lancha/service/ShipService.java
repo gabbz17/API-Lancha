@@ -36,4 +36,8 @@ public class ShipService {
     public Ship findByGo(Role go){
         return repository.findByGo(go);
     }
+
+    public void deleteById(Long id){
+        repository.deleteById(id);
+    }
 }
