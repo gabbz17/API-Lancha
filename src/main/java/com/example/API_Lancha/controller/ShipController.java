@@ -4,12 +4,14 @@ import com.example.API_Lancha.entity.Role;
 import com.example.API_Lancha.entity.Ship;
 import com.example.API_Lancha.service.ShipService;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("api/v1/ship")
 public class ShipController {
@@ -42,9 +44,16 @@ public class ShipController {
         return ResponseEntity.ok().body(ship);
     }
 
-    @DeleteMapping("/id/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteById(@Valid @PathVariable Long id){
         service.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping("/update/{id}")
+    public ResponseEntity<Ship> update(@PathVariable Long id,@Valid @RequestBody String hour){
+        log.info("Recebendo requisição para alterar horário para às: " + hour);
+        Ship ship = service.update(id, hour);
+        return ResponseEntity.ok().body(ship);
     }
 }

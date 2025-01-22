@@ -34,4 +34,10 @@ public class TripController {
         Trip ship = service.findByBuyer(buyer);
         return ResponseEntity.ok().body(ship);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> findByBuyer(@Valid @PathVariable Long id){
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }
