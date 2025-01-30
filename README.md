@@ -51,7 +51,7 @@
 * IDE -> Intellij
 * Banco de Dados -> PostgreSQL
 * Ambiente para versionamento de código -> Git e GitHub
-
+* Ambiente para Contêinerização -> Docker
 
 
 
