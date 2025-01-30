@@ -1,5 +1,6 @@
 package com.example.API_Lancha.service;
 
+import com.example.API_Lancha.dto.UpdateShip;
 import com.example.API_Lancha.entity.Role;
 import com.example.API_Lancha.entity.Ship;
 import com.example.API_Lancha.exception.IdNotFoundException;
@@ -56,11 +57,11 @@ public class ShipService {
         repository.deleteById(id);
     }
 
-    public Ship update(Long id, String hour){
+    public Ship update(Long id, UpdateShip hour){
         log.info("Alterando o horário para às: " + hour);
         Ship ship = findById(id);
 
-        ship.setHour(hour);
+        ship.setHour(hour.getHour());
         return repository.save(ship);
     }
 }

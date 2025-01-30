@@ -1,5 +1,6 @@
 package com.example.API_Lancha.controller;
 
+import com.example.API_Lancha.dto.UpdateShip;
 import com.example.API_Lancha.entity.Role;
 import com.example.API_Lancha.entity.Ship;
 import com.example.API_Lancha.service.ShipService;
@@ -51,7 +52,7 @@ public class ShipController {
     }
 
     @PatchMapping("/update/{id}")
-    public ResponseEntity<Ship> update(@PathVariable Long id,@Valid @RequestBody String hour){
+    public ResponseEntity<Ship> update(@PathVariable Long id,@Valid @RequestBody UpdateShip hour){
         log.info("Recebendo requisição para alterar horário para às: " + hour);
         Ship ship = service.update(id, hour);
         return ResponseEntity.ok().body(ship);
